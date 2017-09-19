@@ -25,7 +25,7 @@ if (grep { /^-*he{0,1}l{0,1}p{0,1}$/i } @ARGV){
 			$out =~ s/\.fa{0,1}s{0,1}t{0,1}q\.gz/_masked\.fastq\.gz/i;
 			print "File: $file is gzipped. Output will be gzipped too: $out\n";
 		} else {
-			$out =~ s/\.fa{1,0}s{1,0}t{1,0}q/_masked\.fastq/i;
+			$out =~ s/\.fa{0,1}s{0,1}t{0,1}q/_masked\.fastq/i;
 		}
 	} else {
 		die $usage;
