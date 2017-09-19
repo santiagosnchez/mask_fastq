@@ -1,7 +1,7 @@
 # mask_fastq.pl
 Perl script that masks bases as "N"s given a PHRED quality threshold.
 
-The program is loosely based on [SubN](https://code.google.com/archive/p/subn/) published by [Yun and Yun (2014)](#references). The main difference is that `mask_fastq.pl` can natively I/O compressed (gzipped) files and does not depend on any external modules.
+The program is loosely based on [SubN](https://code.google.com/archive/p/subn/) published by [Yun and Yun (2014)](#references). The main difference is that `mask_fastq.pl` can natively handle I/O compressed (gzipped) files and does not depend on any external modules.
 
 ## Installation
 
