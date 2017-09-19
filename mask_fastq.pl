@@ -5,7 +5,7 @@
 
 print "\n#########################\n# Running mask_fastq.pl #\n#########################\n\n";
 
-my $usage = "Try:\n\nperl mask_fastq.pl -f myseqs.fastq(.gz) [ -q FRED_VALUE ]\n";
+my $usage = "Try:\n\nperl mask_fastq.pl -f myseqs.fastq(.gz) [ -q PHRED_VALUE ]\n";
 
 my $file;
 my $gzip = 0;
