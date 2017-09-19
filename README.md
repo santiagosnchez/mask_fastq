@@ -14,7 +14,7 @@ The program is loosely based on [SubN](https://code.google.com/archive/p/subn/) 
 
 Use the `-h` flag for more details:
 
-    perl getPhased.pl -h
+    perl mask_fastq.pl -h
     
     #########################
     # Running mask_fastq.pl #
