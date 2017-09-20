@@ -24,3 +24,6 @@ Use the `-h` flag for more details:
     
     perl mask_fastq.pl -f myseqs.fastq(.gz) [ -q PHRED_VALUE ]
     
+# References
+
+Yun, Sajung, & Yun, S. (2014). Masking as an effective quality control method for next-generation sequencing data analysis. BMC Bioinformatics, 15(1), 152–8. http://doi.org/10.1186/s12859-014-0382-2
