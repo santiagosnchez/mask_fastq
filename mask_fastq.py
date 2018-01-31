@@ -48,4 +48,4 @@ with gzip.open(outf,'wb') as fq_out:
 				sys.stdout.write("Seqs read: " + str(seqn) + "\r"),
 				sys.stdout.flush()
 
-print "\nTotal number changed bases: " + str(nbad)
+print "\nTotal number of changed bases: " + str(nbad)
