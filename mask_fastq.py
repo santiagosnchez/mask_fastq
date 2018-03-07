@@ -1,6 +1,7 @@
 # mask_fastq.py
 import gzip
 import sys
+import re
 
 def qfilt(lseq, lqual, qual_lim):
 	"""
@@ -32,20 +33,25 @@ seqn = 0
 outf = "masked_"+file.split("/")[-1]
 print "Writing to: " + outf
 with gzip.open(outf,'wb') as fq_out:
-	with gzip.open(file,'rb') as fq_in:
-		for num, line in enumerate(fq_in,1):
-			if num % 4 == 1:
-				fq_out.write(line)
-			elif num % 4 == 2:
-				seq = line.rstrip()
-			elif num % 4 == 0:
-				qual = map(lambda x: ord(x), list(line.rstrip()))
-				new = qfilt(list(seq), qual, qual_lim)
-				fq_out.write(new[0]+"\n+\n")
-				fq_out.write(line)
-				seqn += 1
-				nbad += new[1]
-				sys.stdout.write("Seqs read: " + str(seqn) + "\r"),
-				sys.stdout.flush()
+	if search(".gz$", file):
+		fq_in = gzip.open(file,'rb')
+	else:
+		fq_in = open(file,'rb')
+	for num, line in enumerate(fq_in,1):
+		if num % 4 == 1:
+			fq_out.write(line)
+		elif num % 4 == 2:
+			seq = line.rstrip()
+		elif num % 4 == 0:
+			qual = map(lambda x: ord(x), list(line.rstrip()))
+			new = qfilt(list(seq), qual, qual_lim)
+			fq_out.write(new[0]+"\n+\n")
+			fq_out.write(line)
+			seqn += 1
+			nbad += new[1]
+			sys.stdout.write("Seqs read: " + str(seqn) + "\r"),
+			sys.stdout.flush()
+	fq_in.close()
+
 
 print "\nTotal number of changed bases: " + str(nbad)
